@@ -1,0 +1,609 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050208">
+<title>Davi | Experiências Digitais</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #050208;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+/* PRIMEIRA TELA */
+
+.hero {
+    min-height: 100svh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 80px 7%;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 35% 45%, #3c075c66, transparent 50%),
+        #050208;
+}
+
+/* LUZES ANIMADAS */
+
+.light {
+    position: absolute;
+    height: 5px;
+    width: 75%;
+    left: -20%;
+    border-radius: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #a020ff,
+        #e5b3ff,
+        #a020ff,
+        transparent
+    );
+    filter: blur(4px);
+    opacity: .8;
+    transform: rotate(17deg);
+    animation: lightMove 7s ease-in-out infinite alternate;
+}
+
+.light.one {
+    top: 18%;
+}
+
+.light.two {
+    top: 35%;
+    width: 90%;
+    animation-delay: -3s;
+    opacity: .6;
+}
+
+.light.three {
+    top: 65%;
+    width: 65%;
+    animation-delay: -5s;
+}
+
+@keyframes lightMove {
+    from {
+        transform: translateX(-15%) rotate(17deg);
+    }
+    to {
+        transform: translateX(45%) rotate(17deg);
+    }
+}
+
+/* PARTÍCULAS */
+
+.particles {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    right: 20%;
+    top: 25%;
+    background: radial-gradient(
+        circle,
+        #a020ff33,
+        #6500b522 30%,
+        transparent 70%
+    );
+    filter: blur(25px);
+    animation: pulse 5s infinite alternate;
+}
+
+@keyframes pulse {
+    from { transform: scale(.8); opacity: .4; }
+    to { transform: scale(1.3); opacity: .9; }
+}
+
+/* CONTEÚDO */
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    align-items: center;
+    gap: 70px;
+}
+
+.hero-title {
+    animation: enter 1.2s ease both;
+}
+
+@keyframes enter {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-title small {
+    color: #d3a1ff;
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.hero-title h1 {
+    font-size: clamp(65px, 10vw, 130px);
+    font-weight: 300;
+    line-height: .98;
+    letter-spacing: -7px;
+    margin-top: 30px;
+}
+
+.hero-title h1 span {
+    display: block;
+    color: #b65aff;
+    text-shadow: 0 0 35px #9b30ff55;
+}
+
+.hero-description {
+    max-width: 380px;
+    animation: enter 1.5s ease both;
+}
+
+.hero-description h2 {
+    font-size: 23px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.hero-description p {
+    color: #aaa0b3;
+    font-size: 14px;
+    line-height: 2;
+    margin-bottom: 35px;
+}
+
+.button {
+    display: inline-block;
+    padding: 16px 25px;
+    background: linear-gradient(100deg, #8018d8, #c026d3);
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: .4s;
+    box-shadow: 0 0 25px #a020ff33;
+}
+
+.button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 40px #a020ff88;
+}
+
+/* INDICADOR DE ROLAGEM */
+
+.scroll {
+    position: absolute;
+    bottom: 30px;
+    left: 7%;
+    color: #897d94;
+    font-size: 10px;
+    letter-spacing: 4px;
+}
+
+.scroll::after {
+    content: "";
+    display: block;
+    width: 55px;
+    height: 1px;
+    background: #a020ff;
+    margin-top: 10px;
+    animation: line 2s infinite;
+}
+
+@keyframes line {
+    0%,100% { width: 20px; }
+    50% { width: 65px; }
+}
+
+/* SEÇÕES */
+
+section.content-section {
+    padding: 110px 8%;
+    position: relative;
+}
+
+.heading {
+    margin-bottom: 55px;
+}
+
+.heading small {
+    color: #bd69ff;
+    letter-spacing: 4px;
+    font-size: 11px;
+}
+
+.heading h2 {
+    font-size: clamp(35px, 5vw, 55px);
+    font-weight: 500;
+    margin: 20px 0;
+}
+
+.heading h2 span {
+    color: #b65aff;
+}
+
+.heading p {
+    color: #9e95a6;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+/* SERVIÇOS */
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.service {
+    padding: 35px;
+    background: linear-gradient(130deg, #170d21, #0c0810);
+    border: 1px solid #a020ff22;
+    transition: .4s;
+    position: relative;
+    overflow: hidden;
+}
+
+.service:hover {
+    border-color: #a020ff;
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px #8700ff18;
+}
+
+.service .number {
+    color: #a020ff;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+.service h3 {
+    font-size: 21px;
+    margin: 30px 0 15px;
+}
+
+.service p {
+    color: #aaa0b3;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* SOBRE */
+
+.about {
+    background: linear-gradient(110deg, #13091c, #08050d);
+}
+
+.about-text {
+    max-width: 750px;
+}
+
+.about-text p {
+    color: #b6aebe;
+    line-height: 2;
+    font-size: 16px;
+}
+
+/* CONTATO */
+
+.contact {
+    text-align: center;
+    background:
+        radial-gradient(ellipse at center, #59108a44, transparent 65%);
+}
+
+.contact h2 {
+    font-size: clamp(35px, 6vw, 65px);
+    font-weight: 400;
+    margin: 20px 0;
+}
+
+.contact h2 span {
+    color: #b65aff;
+}
+
+.contact p {
+    color: #aaa0b3;
+    margin-bottom: 35px;
+    line-height: 1.8;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.socials a {
+    color: white;
+    text-decoration: none;
+    border: 1px solid #a020ff66;
+    padding: 14px 22px;
+    font-size: 12px;
+    transition: .3s;
+}
+
+.socials a:hover {
+    background: #8e20c9;
+    border-color: #8e20c9;
+}
+
+/* RODAPÉ */
+
+footer {
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid #ffffff12;
+    color: #71677a;
+    font-size: 11px;
+}
+
+/* ANIMAÇÕES DE SCROLL */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: .9s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* CELULAR */
+
+@media(max-width: 750px) {
+
+    .hero {
+        padding: 100px 7%;
+        min-height: 100svh;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .hero-title h1 {
+        font-size: clamp(65px, 15vw, 100px);
+        letter-spacing: -5px;
+    }
+
+    .hero-description {
+        max-width: 340px;
+    }
+
+    .particles {
+        right: -20%;
+        top: 20%;
+    }
+
+    .light {
+        width: 120%;
+    }
+
+    section.content-section {
+        padding: 85px 7%;
+    }
+
+    .services {
+        grid-template-columns: 1fr;
+    }
+
+    .scroll {
+        display: none;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ABERTURA -->
+
+<section class="hero" id="inicio">
+
+    <div class="light one"></div>
+    <div class="light two"></div>
+    <div class="light three"></div>
+    <div class="particles"></div>
+
+    <div class="hero-content">
+
+        <div class="hero-title">
+            <small>Desenvolvimento Web</small>
+
+            <h1>
+                Criando
+                <span>o futuro</span>
+                digital.
+            </h1>
+        </div>
+
+        <div class="hero-description">
+            <h2>Seu negócio merece uma presença digital.</h2>
+
+            <p>
+                Transformo ideias em experiências digitais.
+                Desenvolvo sites modernos, funcionais e
+                personalizados para apresentar seu negócio
+                ao mundo.
+            </p>
+
+            <a href="#servicos" class="button">
+                CONHEÇA MEU TRABALHO ↗
+            </a>
+        </div>
+
+    </div>
+
+    <div class="scroll">ROLE PARA DESCOBRIR</div>
+
+</section>
+
+<!-- SERVIÇOS -->
+
+<section class="content-section" id="servicos">
+
+    <div class="heading reveal">
+        <small>MINHAS SOLUÇÕES</small>
+        <h2>O digital começa <span>aqui.</span></h2>
+        <p>Projetos desenvolvidos para destacar seu negócio.</p>
+    </div>
+
+    <div class="services">
+
+        <div class="service reveal">
+            <span class="number">01 / WEBSITES</span>
+            <h3>Sites comerciais</h3>
+            <p>Apresente sua empresa com uma experiência moderna e profissional.</p>
+        </div>
+
+        <div class="service reveal">
+            <span class="number">02 / MENU DIGITAL</span>
+            <h3>Cardápios online</h3>
+            <p>Seu cardápio na internet, acessível pelo celular e com contato direto.</p>
+        </div>
+
+        <div class="service reveal">
+            <span class="number">03 / ORGANIZAÇÃO</span>
+            <h3>Tabelas de preços</h3>
+            <p>Apresente seus produtos e serviços de maneira organizada.</p>
+        </div>
+
+        <div class="service reveal">
+            <span class="number">04 / DIVULGAÇÃO</span>
+            <h3>Páginas digitais</h3>
+            <p>Apresente sua marca e divulgue seu negócio na internet.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SOBRE -->
+
+<section class="content-section about" id="sobre">
+
+    <div class="about-text reveal">
+
+        <div class="heading">
+            <small>QUEM ESTÁ POR TRÁS</small>
+            <h2>Ideias que se tornam <span>realidade.</span></h2>
+        </div>
+
+        <p>
+            Sou Davi, desenvolvedor web. Acredito que cada
+            negócio possui uma história e merece uma boa
+            apresentação na internet.
+
+            Meu objetivo é transformar ideias em projetos
+            digitais com identidade, criatividade e
+            funcionalidade.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- CONTATO -->
+
+<section class="content-section contact" id="contato">
+
+    <div class="reveal">
+
+        <small style="color:#c084fc;letter-spacing:4px">
+            VAMOS CONVERSAR?
+        </small>
+
+        <h2>
+            Sua próxima ideia<br>
+            começa <span>aqui.</span>
+        </h2>
+
+        <p>
+            Vamos transformar seu projeto em uma
+            experiência digital?
+        </p>
+
+        <a class="button"
+        href="https://wa.me/5589981199887"
+        target="_blank">
+            FALE COMIGO ↗
+        </a>
+
+        <div class="socials">
+            <a href="https://www.instagram.com/davis_gwk/"
+            target="_blank">
+                INSTAGRAM @DAVIS_GWK ↗
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 DAVI — DESENVOLVIMENTO WEB
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+        }
+
+    });
+
+}, { threshold: 0.15 });
+
+document.querySelectorAll(".reveal").forEach(element => {
+    observer.observe(element);
+});
+</script>
+
+</body>
+</html>
